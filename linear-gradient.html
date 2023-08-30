@@ -4,10 +4,10 @@
         <meta charset="="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Random solid color generator</title>
+        <title>Random gradient color generator</title>
         <style>
             body{
-                background-color: yellow;
+                height: 40rem;
                 text-align: center;
             }
             button{
@@ -21,15 +21,16 @@
     <body>
         <button>Generate random color</button>
         <script>
-            const button = document.querySelector("button")
-            let body = document.querySelector("body")
-            button.addEventListener("click", function(){
-                let r = (Math.floor(Math.random() * 256));
-                let g = (Math.floor(Math.random() * 256));
-                let b = (Math.floor(Math.random() * 256));
+           const button = document.querySelector("button")
+            const getRandomColors = () => Math.floor(Math.random() * 0xffffff).toString(16)
+            const generatecolor = ()=>{
+                const color1 = getRandomColors();
+                const color2 = getRandomColors();
 
-                body.style.backgroundColor = `rgb(${r},${g},${b})`;
-            })
+                document.body.style.background = `linear-gradient(to left bottom, #${color1}, #${color2})`
+            }
+            generatecolor();
+           button.addEventListener("click", generatecolor)
         </script>
     </body>
 </html> 
